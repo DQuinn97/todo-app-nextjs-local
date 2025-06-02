@@ -5,13 +5,14 @@ import { Input } from "./ui/input";
 import { useActionState } from "react";
 import { toggleTodo } from "@/lib/server-actions";
 import { cn } from "@/lib/utils";
+import { ITodo } from "@/lib/types";
 
 const TodoToggleButton = ({ todo }: { todo: ITodo }) => {
   const [completed, toggle, toggling] = useActionState(
     toggleTodo,
     todo.completed
   );
-  let transparent = toggling ? "opacity-0" : "";
+  const transparent = toggling ? "opacity-0" : "";
 
   return (
     <>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Toaster } from "@/components/ui/sonner";
 import { TodoForm } from "@/components/TodoForm";
 import TodoList from "@/components/TodoList";

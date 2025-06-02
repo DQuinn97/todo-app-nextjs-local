@@ -1,14 +1,14 @@
-interface ITodo {
+export interface ITodo {
   id: string;
   title: string;
   completed: boolean;
 }
-interface ITodoInput {
+export interface ITodoInput {
   title: string;
   completed?: boolean;
 }
 
-interface ITodoFormState {
+export interface ITodoFormState {
   title?: string;
   errors?: {
     title?: string[];

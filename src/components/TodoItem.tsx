@@ -10,11 +10,12 @@ import {
 import Image from "next/image";
 import TodoDeleteButton from "./Btn_TodoDelete";
 import TodoToggleButton from "./Btn_TodoToggle";
+import { ITodo } from "@/lib/types";
 
 const TodoItem = ({ todo }: { todo: ITodo }) => {
   const [isOpen, setIsOpen] = useState(false);
-  let li_class = todo.completed ? "bg-muted" : "";
-  let text_class = todo.completed ? "line-through text-gray-400" : "";
+  const li_class = todo.completed ? "bg-muted" : "";
+  const text_class = todo.completed ? "line-through text-gray-400" : "";
 
   return (
     <li className="w-full">

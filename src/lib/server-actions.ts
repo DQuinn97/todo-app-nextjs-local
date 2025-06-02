@@ -2,6 +2,7 @@
 import { revalidateTag } from "next/cache";
 import { createTodoQ, deleteTodoQ, toggleTodoQ } from "./queries";
 import { z } from "zod";
+import { ITodoFormState } from "./types";
 
 const bannedWords = ["hentai", "porn", "nude", "nudity", "fuck", "shit"];
 const formSchema = z.object({

@@ -1,3 +1,5 @@
+import { ITodo, ITodoInput } from "./types";
+
 export const getTodosQ = async (): Promise<ITodo[]> => {
   const res = await fetch("http://localhost:6541/todos");
   const todos = await res.json();

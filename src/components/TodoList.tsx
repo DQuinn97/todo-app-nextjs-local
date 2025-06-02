@@ -1,3 +1,4 @@
+import { ITodo } from "@/lib/types";
 import TodoItem from "./TodoItem";
 
 const TodoList = async () => {
