@@ -3,9 +3,12 @@ import TodoItem from "./TodoItem";
 
 const TodoList = async () => {
   try {
-    const todoRes = await fetch("http://127.0.0.1:3000/api/todos", {
-      next: { tags: ["todos"] },
-    });
+    const todoRes = await fetch(
+      "https://todo-app-nextjs-five-sooty.vercel.app/api/todos",
+      {
+        next: { tags: ["todos"] },
+      }
+    );
     const todos = await todoRes.json();
     return (
       <div className="flex flex-col px-4 w-full">
