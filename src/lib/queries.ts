@@ -1,10 +1,10 @@
-import { ITodo, ITodoInput } from "./types";
+// import { ITodo, ITodoInput } from "./types";
 import supabase from "@/supabase";
 import { Tables, TablesInsert } from "@/supabase/types";
 
 export const getTodosQ = async (): Promise<Tables<"Todo">[]> => {
   try {
-    const { data, error } = await supabase.from("Todo").select("*");
+    const { data } = await supabase.from("Todo").select("*");
     return data || [];
   } catch (error) {
     throw error;
