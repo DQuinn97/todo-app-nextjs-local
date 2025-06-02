@@ -34,13 +34,13 @@ export const addTodo = async (
 };
 
 export const deleteTodo = async (_: boolean, fd: FormData) => {
-  await deleteTodoQ(fd.get("id") as string);
+  await deleteTodoQ(+(fd.get("id") as string));
   revalidateTag("todos");
   return true;
 };
 
 export const toggleTodo = async (state: boolean, fd: FormData) => {
-  const id = fd.get("id") as string;
+  const id = +(fd.get("id") as string);
   const completed = fd.get("completed") ? true : false;
   await toggleTodoQ(id, !completed);
   revalidateTag("todos");

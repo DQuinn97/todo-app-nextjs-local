@@ -1,26 +1,38 @@
 import { ITodo, ITodoInput } from "./types";
+import supabase from "@/supabase";
+import { Tables, TablesInsert } from "@/supabase/types";
 
-export const getTodosQ = async (): Promise<ITodo[]> => {
-  const res = await fetch("http://localhost:6541/todos");
-  const todos = await res.json();
-  return todos;
+export const getTodosQ = async (): Promise<Tables<"Todo">[]> => {
+  try {
+    const { data, error } = await supabase.from("Todo").select("*");
+    return data || [];
+  } catch (error) {
+    throw error;
+  }
 };
-export const deleteTodoQ = async (id: string) => {
-  await fetch(`http://localhost:6541/todos/${id}`, {
-    method: "DELETE",
-  });
-};
-
-export const createTodoQ = async (todo: ITodoInput) => {
-  await fetch("http://localhost:6541/todos", {
-    method: "POST",
-    body: JSON.stringify(todo),
-  });
+export const deleteTodoQ = async (id: Tables<"Todo">["id"]) => {
+  try {
+    await supabase.from("Todo").delete().eq("id", id);
+  } catch (error) {
+    throw error;
+  }
 };
 
-export const toggleTodoQ = async (id: string, completed: boolean) => {
-  await fetch(`http://localhost:6541/todos/${id}`, {
-    method: "PATCH",
-    body: JSON.stringify({ completed }),
-  });
+export const createTodoQ = async (todo: TablesInsert<"Todo">) => {
+  try {
+    await supabase.from("Todo").insert(todo);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const toggleTodoQ = async (
+  id: Tables<"Todo">["id"],
+  completed: boolean
+) => {
+  try {
+    await supabase.from("Todo").update({ completed }).eq("id", id);
+  } catch (error) {
+    throw error;
+  }
 };
