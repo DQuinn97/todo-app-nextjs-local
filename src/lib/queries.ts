@@ -7,6 +7,7 @@ export const getTodosQ = async (): Promise<Tables<"Todo">[]> => {
     const { data } = await supabase.from("Todo").select("*");
     return data || [];
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
