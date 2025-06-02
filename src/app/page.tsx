@@ -4,6 +4,7 @@ import TodoList from "@/components/TodoList";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
   title: "Next Todo App",
   description: "Locally hosted todo app built with Next.js",
   keywords: ["nextjs", "react", "typescript"],
