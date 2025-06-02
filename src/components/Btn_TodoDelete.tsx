@@ -7,7 +7,7 @@ import { deleteTodo } from "@/lib/server-actions";
 import { ITodo } from "@/lib/types";
 
 const TodoDeleteButton = ({ todo }: { todo: ITodo }) => {
-  const [_, delTodo, deleting] = useActionState(deleteTodo, true);
+  const [, delTodo, deleting] = useActionState(deleteTodo, true);
 
   return (
     <>

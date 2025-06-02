@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,10 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Next Todo App",
-  description: "A todo app built with Next.js",
-};
+// export const metadata: Metadata = {
+//   title: "Next Todo App",
+//   description: "A todo app built with Next.js",
+// };
 
 export default function RootLayout({
   children,
